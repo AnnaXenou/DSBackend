@@ -3,6 +3,7 @@ package gr.hua.dit.ds.controllers;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,17 +29,20 @@ public class ApplicationController {
 	}
 
 	// build create application REST API
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping()
 	public ResponseEntity<Application> saveApplication(@RequestBody Application application){
 		return new ResponseEntity<Application>(applicationService.saveApplication(application), HttpStatus.CREATED);
 	}
 	
 	// build get all application REST API
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping
 	public List<Application> getAllApplications(){
 		return applicationService.getAllApplications();
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/student/{studentId}")
 	public ResponseEntity<Application> getApplicationByStudent(@PathVariable("studentId") String studentId){
 		return new ResponseEntity<Application>(applicationService.getApplicationByStudent(studentId), HttpStatus.OK);
@@ -46,6 +50,7 @@ public class ApplicationController {
 	
 	// build get application by id REST API
 	// http://localhost:8080/api/applications/1
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("{id}")
 	public ResponseEntity<Application> getApplicationById(@PathVariable("id") long applicationId){
 		return new ResponseEntity<Application>(applicationService.getApplicationById(applicationId), HttpStatus.OK);
@@ -53,6 +58,7 @@ public class ApplicationController {
 	
 	// build update application REST API
 	// http://localhost:8080/api/applications/1
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PutMapping("{id}")
 	public ResponseEntity<Application> updateApplication(@PathVariable("id") long id
 												  ,@RequestBody Application application){
@@ -61,6 +67,7 @@ public class ApplicationController {
 	
 	// build delete application REST API
 	// http://localhost:8080/api/applications/1
+	@CrossOrigin(origins = "http://localhost:3000")
 	@DeleteMapping("{id}")
 	public ResponseEntity<String> deleteApplication(@PathVariable("id") long id){
 		

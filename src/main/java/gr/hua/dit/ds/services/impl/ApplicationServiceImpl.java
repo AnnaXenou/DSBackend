@@ -76,6 +76,7 @@ public class ApplicationServiceImpl implements ApplicationService{
 		existingApplication.setProgram(application.getProgram());
 		existingApplication.setGrade(application.getGrade());
 		existingApplication.setProfessors(application.getProfessors());
+		existingApplication.setMaster(application.getMaster());
 		// save existing application to DB
 		applicationRepository.save(existingApplication);
 		return existingApplication;

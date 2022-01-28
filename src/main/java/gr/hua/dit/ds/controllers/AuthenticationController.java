@@ -37,7 +37,8 @@ public class AuthenticationController {
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
-
+	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/auth/login")
 	public ResponseEntity<?> login(@RequestBody AuthenticationRequest authenticationRequest) throws InvalidKeySpecException, NoSuchAlgorithmException {
 

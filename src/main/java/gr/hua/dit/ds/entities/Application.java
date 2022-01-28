@@ -27,17 +27,21 @@ public class Application {
 	@Column(name = "professors")
 	private String professors;
 	
+	@Column(name = "master")
+	private String master;
+	
 	
 	public Application() {
 		super();
 	}
 	
-	public Application(String studentId, String program, String grade, String professors) {
+	public Application(String studentId, String program, String grade, String professors, String master) {
 		super();
 		this.studentId = studentId;
 		this.program = program;
 		this.grade = grade;
 		this.professors = professors;
+		this.master = master;
 	}
 
 	public long getId() {
@@ -78,6 +82,15 @@ public class Application {
 	public void setProfessors(String professors) {
 		this.professors = professors;
 	}
+
+	public String getMaster() {
+		return master;
+	}
+
+	public void setMaster(String master) {
+		this.master = master;
+	}
+	
 	
 	
 

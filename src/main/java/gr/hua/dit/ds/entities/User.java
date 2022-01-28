@@ -23,6 +23,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 public class User implements UserDetails {
 	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -54,8 +56,29 @@ public class User implements UserDetails {
 
 	@Column(name = "enabled")
 	private boolean enabled=true;
-
 	
+	
+	public User() {
+		super();
+	}
+
+	public User(String userName, String password, Date createdAt, Date updatedAt, String firstName, String lastName,
+			String email, String phoneNumber, boolean enabled, List<Authority> authorities) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.enabled = enabled;
+		this.authorities = authorities;
+	}
+
+
+
 	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinTable(name = "AUTH_USER_AUTHORITY", joinColumns = @JoinColumn(referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(referencedColumnName ="id"))
 	private List<Authority> authorities;

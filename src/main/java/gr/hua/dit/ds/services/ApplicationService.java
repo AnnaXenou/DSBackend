@@ -4,7 +4,6 @@ import java.util.List;
 
 import gr.hua.dit.ds.entities.Application;
 
-
 public interface ApplicationService {
 	Application saveApplication(Application application);
 	List<Application> getAllApplications();
